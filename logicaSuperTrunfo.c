@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdio.h>
 #include <string.h>
 
 // SUPER TRUNFO - DESAFIO FINAL
@@ -18,6 +17,7 @@ int main() {
 
     int opcao1, opcao2;
     float valorA1 = 0, valorB1 = 0;
+    float valorA2 = 0, valorB2 = 0;
     float somaA = 0, somaB = 0;
     char atributo1[30], atributo2[30];
 
@@ -77,8 +77,6 @@ int main() {
         return 0;
     }
 
-    float valorA2 = 0, valorB2 = 0;
-
     switch (opcao2) {
         case 1:
             strcpy(atributo2, "População");
@@ -114,50 +112,27 @@ int main() {
     printf("--------------------------------------\n");
 
     // Regra especial: Densidade Demográfica vence quem tem MENOR valor
-    float resultado1 = (strcmp(atributo1, "Densidade Demográfica") == 0) ? 
-                       (valorA1 < valorB1 ? 1 : 0) : 
-                       (valorA1 > valorB1 ? 1 : 0);
+    float resultado1 = (strcmp(atributo1, "Densidade Demográfica") == 0)
+                           ? (valorA1 < valorB1 ? 1 : 0)
+                           : (valorA1 > valorB1 ? 1 : 0);
 
-    float resultado2 = (strcmp(atributo2, "Densidade Demográfica")
+    float resultado2 = (strcmp(atributo2, "Densidade Demográfica") == 0)
+                           ? (valorA2 < valorB2 ? 1 : 0)
+                           : (valorA2 > valorB2 ? 1 : 0);
 
-// Desafio Super Trunfo - Países
-// Tema 2 - Comparação das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de comparação de cartas de cidades. 
-// Siga os comentários para implementar cada parte do desafio.
+    somaA = valorA1 + valorA2;
+    somaB = valorB1 + valorB2;
 
-int main() {
-    // Definição das variáveis para armazenar as propriedades das cidades
-    // Você pode utilizar o código do primeiro desafio
+    printf("Soma dos atributos:\n");
+    printf("%s: %.2f\n", pais1, somaA);
+    printf("%s: %.2f\n", pais2, somaB);
+    printf("--------------------------------------\n");
 
-    
-    // Cadastro das Cartas:
-    // Implemente a lógica para solicitar ao usuário que insira os dados das cidades
-    // utilizando a função scanf para capturar as entradas.
-    // utilize o código do primeiro desafio
-
-    // Exemplo:
-    // printf("Digite o código da cidade: ");
-    // scanf("%s", codigo);
-    // 
-    // (Repita para cada propriedade)
-
-    // Comparação de Cartas:
-    // Desenvolva a lógica de comparação entre duas cartas.
-    // Utilize estruturas de decisão como if, if-else para comparar atributos como população, área, PIB, etc.
-
-    // Exemplo:
-    // if (populacaoA > populacaoB) {
-    //     printf("Cidade 1 tem maior população.\n");
-    // } else {
-    //     printf("Cidade 2 tem maior população.\n");
-    // }
-
-    // Exibição dos Resultados:
-    // Após realizar as comparações, exiba os resultados para o usuário.
-    // Certifique-se de que o sistema mostre claramente qual carta venceu e com base em qual atributo.
-
-    // Exemplo:
-    // printf("A cidade vencedora é: %s\n", cidadeVencedora);
+    // Determinar vencedor (com operador ternário)
+    (somaA > somaB) ? printf("Vencedor: %s 🏆\n", pais1)
+                    : (somaB > somaA) ? printf("Vencedor: %s 🏆\n", pais2)
+                                      : printf("Empate!\n");
 
     return 0;
 }
+
